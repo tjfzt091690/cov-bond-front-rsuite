@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/cv_bond_front_rsuite.iml" filepath="$PROJECT_DIR$/.idea/cv_bond_front_rsuite.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/rsuite-management-system2.iml" filepath="$PROJECT_DIR$/.idea/rsuite-management-system2.iml" />
     </modules>
   </component>
 </project>

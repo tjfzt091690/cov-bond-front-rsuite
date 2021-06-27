@@ -1,10 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import DoubleLow from './DoubleLow';
+import { hot } from 'react-hot-loader';
+import ready from './ready';
+import App from './App';
+
 import './styles/index.less';
-ReactDOM.render(
-  <React.StrictMode>
-    <DoubleLow />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+
+const hotRender = Component => {
+  ReactDOM.render(<Component />, document.getElementById('root'));
+};
+
+ready(() => {
+  hotRender(hot(module)(App));
+});
