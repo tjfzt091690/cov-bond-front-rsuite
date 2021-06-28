@@ -1,22 +1,17 @@
 import * as React from 'react';
-import { Link } from 'react-router';
+import CovDetail from './CovDetail';
 import {
   Input,
   InputGroup,
-  Breadcrumb,
   Table,
   Panel,
   Icon,
   ButtonToolbar,
   Button,
-  IconButton,
-  Navbar,
-  DOMHelper,
-  Notification
+  DOMHelper
 } from 'rsuite';
 import PropTypes from 'prop-types';
 import axios from 'axios' ;
-import DrawerView from "./DrawerView";
 
 const { getHeight } = DOMHelper;
 
@@ -24,13 +19,14 @@ const { Column, HeaderCell, Cell } = Table;
 
 type Props = {};
 type State = {
-  datas:PropTypes.array
+  datas:PropTypes.array,
+  bondId:PropTypes.string
 };
 
 class CovTable extends React.Component<Props, State> {
   constructor() {
     super();
-    this.state = {datas:[]};
+    this.state = {datas:[],bondId:''};
   }
   search = () => {
     const _this = this;
@@ -41,17 +37,20 @@ class CovTable extends React.Component<Props, State> {
             return;
           }
           var datas = response.data;
-          _this.setState({datas:datas});
+          _this.setState({datas:datas,bondId:''});
         })
         .catch(function (error) {
           console.log(error);
         });
   }
   render(){
-    const {datas} = this.state;
+    const {datas,bondId} = this.state;
     return (
         <div>
           <Panel header={<h3>转债双低</h3>}>
+            <div className="modal-container">
+              <CovDetail bondId={'sz128127'} shown={true} />
+            </div>
             <div className="table-toolbar">
               <ButtonToolbar className="inner-left">
                 <Button appearance="primary" placement="left" onClick={this.search}>
