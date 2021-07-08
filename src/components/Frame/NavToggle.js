@@ -26,7 +26,7 @@ const NavToggle = ({ expand, onChange }: Props) => {
       <Navbar.Body>
         <Nav>
           <Dropdown
-            placement={expand ? 'topLeft' : 'rightBottom'}
+            placement={expand ? 'topStart' : 'rightEnd'}
             trigger="click"
             renderTitle={children => {
               return <Icon style={styles.icon} icon="cog" />;

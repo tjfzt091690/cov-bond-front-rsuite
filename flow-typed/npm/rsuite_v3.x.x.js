@@ -22,23 +22,23 @@ declare module "rsuite" {
   declare type DropdownTriggerType = "click" | "hover" | "contextMenu";
   declare type PlacementFourSides = "top" | "right" | "bottom" | "left";
   declare type PlacementEightPoints =
-    | "bottomLeft"
-    | "bottomRight"
-    | "topLeft"
-    | "topRight"
-    | "leftTop"
-    | "rightTop"
-    | "leftBottom"
-    | "rightBottom";
+    | "bottomStart"
+    | "bottomEnd"
+    | "topStart"
+    | "topEnd"
+    | "leftStart"
+    | "leftEnd"
+    | "rightStart"
+    | "rightEnd";
 
   declare type PlacementAuto =
     | "auto"
     | "autoVertical"
-    | "autoVerticalLeft"
-    | "autoVerticalRight"
+    | "autoVerticalStart"
+    | "autoVerticalEnd"
     | "autoHorizontal"
-    | "autoHorizontalTop"
-    | "autoHorizontalBottom";
+    | "autoHorizontalStart"
+    | "autoHorizontalEnd";
 
   declare type Placement = PlacementEightPoints | PlacementAuto;
   declare type ItemDataType = {

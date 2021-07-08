@@ -34,33 +34,95 @@ class CovDetailBasic extends React.Component<Props, State> {
   constructor(props) {
     super(props);
     let basicinfo = props.basicinfo;
-    this.state = {
-      bondCode        : basicinfo.bondCode        ,
-      mkt             : basicinfo.mkt             ,
-      simpleName      : basicinfo.simpleName      ,
-      purchaseDate    : basicinfo.purchaseDate    ,
-      purchaseCode    : basicinfo.purchaseCode    ,
-      stockCode       : basicinfo.stockCode       ,
-      stockName       : basicinfo.stockName       ,
-      parValue        : basicinfo.parValue        ,
-      price           : basicinfo.price           ,
-      covPrice        : basicinfo.covPrice        ,
-      checkDate       : basicinfo.checkDate       ,
-      checkRatio      : basicinfo.checkRatio      ,
-      listDate        : basicinfo.listDate        ,
-      remark          : basicinfo.remark          ,
-      mktType         : basicinfo.mktType         ,
-      markDate        : basicinfo.markDate        ,
-      top             : basicinfo.top             ,
-      covValue        : basicinfo.covValue        ,
-      bondPrice       : basicinfo.bondPrice       ,
-      overRatio       : basicinfo.overRatio       ,
-      amt             : basicinfo.amt             ,
-      listStatus      : basicinfo.listStatus      ,
-      purpose         : basicinfo.purpose         ,
-      convSDate       : basicinfo.convSDate       ,
-      convEDate       : basicinfo.convEDate       
-    };
+    if(basicinfo) {
+      this.state = {
+        bondCode: basicinfo.bondCode,
+        mkt: basicinfo.mkt,
+        simpleName: basicinfo.simpleName,
+        purchaseDate: basicinfo.purchaseDate,
+        purchaseCode: basicinfo.purchaseCode,
+        stockCode: basicinfo.stockCode,
+        stockName: basicinfo.stockName,
+        parValue: basicinfo.parValue,
+        price: basicinfo.price,
+        covPrice: basicinfo.covPrice,
+        checkDate: basicinfo.checkDate,
+        checkRatio: basicinfo.checkRatio,
+        listDate: basicinfo.listDate,
+        remark: basicinfo.remark,
+        mktType: basicinfo.mktType,
+        markDate: basicinfo.markDate,
+        top: basicinfo.top,
+        covValue: basicinfo.covValue,
+        bondPrice: basicinfo.bondPrice,
+        overRatio: basicinfo.overRatio,
+        amt: basicinfo.amt,
+        listStatus: basicinfo.listStatus,
+        purpose: basicinfo.purpose,
+        convSDate: basicinfo.convSDate,
+        convEDate: basicinfo.convEDate
+      };
+    }else {
+      this.state = {
+        bondCode: null,
+        mkt: null,
+        simpleName: null,
+        purchaseDate: null,
+        purchaseCode: null,
+        stockCode: null,
+        stockName: null,
+        parValue: null,
+        price: null,
+        covPrice: null,
+        checkDate: null,
+        checkRatio: null,
+        listDate: null,
+        remark: null,
+        mktType: null,
+        markDate: null,
+        top: null,
+        covValue: null,
+        bondPrice: null,
+        overRatio: null,
+        amt: null,
+        listStatus: null,
+        purpose: null,
+        convSDate: null,
+        convEDate: null
+      };
+    }
+  }
+  componentWillReceiveProps(nextProps){
+    const newdata = nextProps.basicinfo;
+    if(newdata) {
+      this.state = {
+        bondCode: newdata.bondCode,
+        mkt: newdata.mkt,
+        simpleName: newdata.simpleName,
+        purchaseDate: newdata.purchaseDate,
+        purchaseCode: newdata.purchaseCode,
+        stockCode: newdata.stockCode,
+        stockName: newdata.stockName,
+        parValue: newdata.parValue,
+        price: newdata.price,
+        covPrice: newdata.covPrice,
+        checkDate: newdata.checkDate,
+        checkRatio: newdata.checkRatio,
+        listDate: newdata.listDate,
+        remark: newdata.remark,
+        mktType: newdata.mktType,
+        markDate: newdata.markDate,
+        top: newdata.top,
+        covValue: newdata.covValue,
+        bondPrice: newdata.bondPrice,
+        overRatio: newdata.overRatio,
+        amt: newdata.amt,
+        listStatus: newdata.listStatus,
+        purpose: newdata.purpose,
+        convSDate: newdata.convSDate,
+        convEDate: newdata.convEDate
+      };
+    }
   }
   render(){
     const {

@@ -99,7 +99,7 @@ class Frame extends React.Component<Props, State> {
           <Dropdown
             key={item.key}
             eventKey={item.key}
-            placement="rightTop"
+            placement="rightStart"
             trigger="hover"
             title="Errors"
             icon={item.icon}
