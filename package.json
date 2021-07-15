@@ -47,8 +47,7 @@
     "rsuite": "^4.2.1",
     "rsuite-utils": "^1.0.0",
     "axios": "^0.21.0",
-    "echarts": "5.1.2",
-    "@rsuite/charts": "4.0.0"
+    "echarts": "^4.0.0"
   },
   "peerDependencies": {
     "react": "^0.14.9 || >=15.3.0",

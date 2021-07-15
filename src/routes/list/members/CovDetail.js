@@ -5,6 +5,7 @@ import {
 import PropTypes from 'prop-types';
 import axios from 'axios' ;
 import CovDetailBasic from './CovDetailBasic';
+import CovDetailBondPriceCurve from './CovDetailBondPriceCurve';
 
 type Props ={
     bondId:PropTypes.string,
@@ -47,6 +48,8 @@ class CovDetail extends React.Component<Props, State> {
           _this.setState({
             bondDaily:datas.bondDaily,
             bondInfo:datas.bondInfo,
+            stockDaily:datas.stockDaily,
+            covDaily:datas.covDaily,
             bondId:bondId,
             shown:shown
           });
@@ -56,7 +59,7 @@ class CovDetail extends React.Component<Props, State> {
         });
   }
   render(){
-    const { shown,bondDaily,bondInfo } = this.state;
+    const { shown,bondDaily,bondInfo,stockDaily,covDaily } = this.state;
     return (
             <Modal show={shown} size={'lg'} overflow={true} full={true}>
                 <Modal.Header closeButton={true}>
@@ -69,6 +72,7 @@ class CovDetail extends React.Component<Props, State> {
                                 <CovDetailBasic basicinfo={bondInfo} />
                             </Col>
                         </Row>
+                        <CovDetailBondPriceCurve bondDaily={bondDaily} stockDaily={stockDaily} covDaily={covDaily} />
                     </Grid>
                 </Modal.Body>
             </Modal>
