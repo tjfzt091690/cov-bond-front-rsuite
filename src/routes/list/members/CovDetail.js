@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {
-    Modal, Col, Row,Grid
+    Modal, Col, Row,Grid, Button
 } from 'rsuite';
 import PropTypes from 'prop-types';
 import axios from 'axios' ;
@@ -30,6 +30,7 @@ class CovDetail extends React.Component<Props, State> {
       bondId:bondId,
       shown:shown
     };
+    this.close = this.close.bind(this);
   }
   componentWillReceiveProps(nextProps) {
     let bondId = nextProps.bondId;
@@ -38,7 +39,7 @@ class CovDetail extends React.Component<Props, State> {
   }
   pageinfo (bondId,shown) {
     const _this = this;
-    axios.post('http://localhost:8080/covbond/getDetaiByBondId', {bondId:bondId})
+    axios.post('https://www.shtltech.top:8080/covbond/getDetaiByBondId', {bondId:bondId})
         .then(function (response) {
           if (response.status !== 200) {
             console.error(response.statusText);
@@ -58,11 +59,14 @@ class CovDetail extends React.Component<Props, State> {
           console.log(error);
         });
   }
+  close() {
+    this.setState({ shown: false });
+  }
   render(){
     const { shown,bondDaily,bondInfo,stockDaily,covDaily } = this.state;
     return (
-            <Modal show={shown} size={'lg'} overflow={true} full={true}>
-                <Modal.Header closeButton={true}>
+            <Modal show={shown} size={'lg'} overflow={true} full={true} >
+                <Modal.Header>
                     <Modal.Title>detail</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
@@ -75,6 +79,11 @@ class CovDetail extends React.Component<Props, State> {
                         <CovDetailBondPriceCurve bondDaily={bondDaily} stockDaily={stockDaily} covDaily={covDaily} />
                     </Grid>
                 </Modal.Body>
+                <Modal.Footer>
+                    <Button onClick={this.close} appearance="primary">
+                        Close
+                    </Button>
+                </Modal.Footer>
             </Modal>
     );
   }

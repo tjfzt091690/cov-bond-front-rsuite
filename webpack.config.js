@@ -16,7 +16,7 @@ module.exports = {
     historyApiFallback: true,
     compress: true,
     host: '0.0.0.0',
-    port: 3000
+    port: 80
   },
   entry: {
     polyfills: './src/polyfills.js',
