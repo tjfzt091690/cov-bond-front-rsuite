@@ -39,7 +39,7 @@ class CovDetail extends React.Component<Props, State> {
   }
   pageinfo (bondId,shown) {
     const _this = this;
-    axios.post('https://www.shtltech.top:8080/covbond/getDetaiByBondId', {bondId:bondId})
+    axios.post('http://www.shtltech.top:8080/covbond/getDetaiByBondId', {bondId:bondId})
         .then(function (response) {
           if (response.status !== 200) {
             console.error(response.statusText);

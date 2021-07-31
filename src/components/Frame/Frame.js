@@ -22,18 +22,21 @@ import { pageview } from '../../tracker';
 
 const { getHeight, on } = DOMHelper;
 const navs = [
+    /*
   {
     key: '1',
     icon: <Icon icon="dashboard" />,
     text: 'Dashboard',
     link: '/dashboard'
   },
+  */
   {
     key: '2',
     icon: <Icon icon="group" />,
     text: '转债',
     link: '/list/members'
   },
+    /*
   {
     key: '3',
     text: 'Errors',
@@ -51,6 +54,8 @@ const navs = [
       }
     ]
   }
+
+     */
 ];
 
 type State = {
@@ -167,7 +172,7 @@ class Frame extends React.Component<Props, State> {
             <div className="header-hrand">
               <Link to="/">
                 <Icon icon="logo-analytics" size="lg" style={{ verticalAlign: 0 }} />
-                <span style={{ marginLeft: 12 }}> RSUITE ANALYTICS</span>
+                <span style={{ marginLeft: 12 }}> Balabala Magic</span>
               </Link>
             </div>
           </Sidenav.Header>
@@ -175,13 +180,6 @@ class Frame extends React.Component<Props, State> {
             <Sidenav.Body style={navBodyStyle}>
               <Nav>
                 {this.renderNavs()}
-                <Nav.Item
-                  href="https://github.com/rsuite/rsuite-management-system"
-                  icon={<Icon icon="github" />}
-                  target="_blank"
-                >
-                  Github
-                </Nav.Item>
               </Nav>
             </Sidenav.Body>
           </Sidenav>

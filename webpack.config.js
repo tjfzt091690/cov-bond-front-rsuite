@@ -2,10 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlwebpackPlugin = require('html-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-const { NODE_ENV, STYLE_DEBUG, ENV_LOCALE } = process.env;
-const __PRO__ = NODE_ENV === 'production';
 const extractLess = new ExtractTextPlugin('style.[hash].css');
 const rsuiteStylePath = path.resolve(__dirname, './node_modules/rsuite/styles');
 
@@ -16,7 +13,7 @@ module.exports = {
     historyApiFallback: true,
     compress: true,
     host: '0.0.0.0',
-    port: 80
+    port: 3000
   },
   entry: {
     polyfills: './src/polyfills.js',
@@ -43,7 +40,6 @@ module.exports = {
       {
         test: /\.js$/,
         use: [
-          //'transform-loader?brfs', // Use browserify transforms as webpack-loader.
           'babel-loader?babelrc'
         ],
         exclude: /node_modules/
@@ -52,13 +48,11 @@ module.exports = {
         test: /\.(less|css)$/,
         loader: extractLess.extract({
           use: ['css-loader', 'less-loader'],
-          // use style-loader in development
           fallback: 'style-loader?{attrs:{prop: "value"}}'
         })
       },
       {
         test: /\.(jpg|png|svg)$/,
-        //`publicPath`  only use to assign assets path in build
         use: [
           {
             loader: 'url-loader',
@@ -98,6 +92,5 @@ module.exports = {
       template: 'src/index.html',
       inject: true
     })
-    // new BundleAnalyzerPlugin({ openAnalyzer: false })
   ]
 };

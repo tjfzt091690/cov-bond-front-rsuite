@@ -31,7 +31,7 @@ class CovTable extends React.Component<Props, State> {
   }
   search = () => {
     const _this = this;
-    axios.post('https://www.shtltech.top:8080/covbond/getMainList', {})
+    axios.post('http://www.shtltech.top:8080/covbond/getMainList', {})
         .then(function (response) {
           if (response.status !== 200) {
             console.error(response.statusText);

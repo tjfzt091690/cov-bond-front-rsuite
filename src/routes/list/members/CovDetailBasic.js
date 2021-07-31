@@ -95,7 +95,7 @@ class CovDetailBasic extends React.Component<Props, State> {
   componentWillReceiveProps(nextProps){
     const newdata = nextProps.basicinfo;
     if(newdata) {
-      this.state = {
+      this.setState({
         bondCode: newdata.bondCode,
         mkt: newdata.mkt,
         simpleName: newdata.simpleName,
@@ -121,7 +121,7 @@ class CovDetailBasic extends React.Component<Props, State> {
         purpose: newdata.purpose,
         convSDate: newdata.convSDate,
         convEDate: newdata.convEDate
-      };
+      });
     }
   }
   render(){
